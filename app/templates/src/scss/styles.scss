@@ -1,0 +1,28 @@
+// ---- Auto-generated: Delete me! ----
+$<%= component %>-code-font: monospace;
+
+.<%= component %>-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+
+  &.is-1-column {
+    flex-direction: column;
+  }
+
+  &.is-2-column {
+    flex-direction: row;
+  }
+
+  .<%= component %>-heading {
+    font-size: 20px;
+    color: #3a3939;
+    text-align: center;
+  }
+
+  .<%= component %>-code {
+    font-family: $<%= component %>-code-font;
+  }
+
+}
+// ---- [end] Auto-generated: Delete me! ----

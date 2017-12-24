@@ -21,6 +21,11 @@ docs](https://github.com/willmendesneto/generator-poi-boilerplate/tree/v<%= gene
 for info on the repo layout, structure and meaning.
 
 
+## Publishing the package
+
+This project is using `np` as publisher helper. For more information, please check [`np` documentation](https://github.com/sindresorhus/np#readme)
+
+
 ## Changes and history
 
 See [CHANGELOG.md](./CHANGELOG.md).

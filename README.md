@@ -1,4 +1,4 @@
-# poi-boilerplate yo generator 
+# PoiJS -  Yeoman generator 
 
 This is a yo generator for building domain react frontend components. Install it, run it and start building components!
 
@@ -11,7 +11,7 @@ Project](/app/templates/README.md#about-this-project)_.
 
 ```
 mkdir co-my-component && cd co-my-component
-npx -p yo -p generator-poi-boilerplate -c 'yo poi-boilerplate'
+npx -p yo -p generator-poi -c 'yo poi-boilerplate'
 ```
 
 _[`yarn` failing?](#yarn-failing)_
@@ -20,7 +20,7 @@ Then answer the questions truthfully (_it'll know if you're lying_)
 
 ### update-boilerplate
 
-generator-poi-boilerplate provides a script `update-boilerplate` to help update repositories built with generator-poi-boilerplate
+generator-poi provides a script `update-boilerplate` to help update repositories built with generator-poi
 to the latest version.
 
 #### Setup
@@ -49,7 +49,7 @@ npm install -g npm@latest
 Inside the existing boilerplate generated repository run:
 
 ```
-npx -p willmendesneto/generator-poi-boilerplate -c update-boilerplate
+npx -p willmendesneto/generator-poi -c update-boilerplate
 ```
 
 update-boilerplate will apply the changes from the latest version of boilerplate as a git style merge - so you'll still need to manually fix conflicts.

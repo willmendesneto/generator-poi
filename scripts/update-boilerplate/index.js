@@ -36,7 +36,7 @@ function updateGeneratorVersion() {
 updateGeneratorVersion();
 
 githubDiff(
-  'willmendesneto/generator-poi-boilerplate',
+  'willmendesneto/generator-poi',
   `v${oldGeneratorVersion}`,
   `v${newGeneratorVersion}`
 ).then((patches) => {

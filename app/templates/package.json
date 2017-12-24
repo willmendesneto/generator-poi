@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "generatorVersion": "<%= generatorVersion %>",
   "description": "<%= description %>",
-  "main": "src/js/export.js",
+  "main": "dist/client.js",
   "scripts": {
-    "prepublish": "poi build",
-    "demo:deploy": "gh-pages -d dist",
-    "build": "poi build",
-    "postbuild": "rm -rf dist/**/*.{css,js}.map",
-    "serve:dist": "http-server dist",
+    "prepublish": "npm run build:library",
+    "demo:deploy": "npm run build:page -- --no-sourceMap && gh-pages -d dist",
+    "build:page": "NODE_ENV=production poi build",
+    "build:library": "NODE_ENV=production poi build src/js/export.js --format cjs --filename.js client.js --no-sourceMap --no-html",
+    "serve:dist": "npm run build:page && http-server dist",
     "start": "poi",
     "watch": "poi watch",
     "test": "NODE_ENV=test nyc --require babel-register --require babel-polyfill --reporter=lcov --reporter=text-summary mocha ./tests/unit/**/*.spec.js --require ./tests/setup.js",
@@ -49,6 +49,7 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

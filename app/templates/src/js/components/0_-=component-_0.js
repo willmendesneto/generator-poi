@@ -3,6 +3,9 @@ import { HowToStart } from 'generator-poi-boilerplate-demo'
 
 import '../../scss/styles.scss'
 
+// This component is generated automatically
+// As your first step, please remove `HowToStart` component reference
+
 const <%= componentCC %> = ({ type }) => (
   <section className={`<%= component %>-wrapper is-${type}`}>
     <h1 className="<%= component %>-heading">

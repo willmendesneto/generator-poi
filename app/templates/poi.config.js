@@ -1,7 +1,8 @@
+const { name, description } = require('./package.json')
 
 module.exports = {
   html: {
-    title: '<%= title %> - <%= description %>',
+    title: `${name} | ${description}`,
     template: './index.ejs',
   },
   filename: {

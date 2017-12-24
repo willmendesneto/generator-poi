@@ -7,7 +7,6 @@ describe('Generator POI boilerplate: bootstrap', () => {
   const promtArgs = {
     reactComponent: 'test-boilerplate',
     description: 'My description',
-    basePath: 'test-server-basepath',
     team: 'My Team',
     author: 'John Doe',
     autoLoad: false,
@@ -41,27 +40,33 @@ describe('Generator POI boilerplate: bootstrap', () => {
   });
 
   it('should create configuration files', () => {
-    assert.file('.babelrc');
-    assert.file('.editorconfig');
-    assert.file('.gitattributes');
-    assert.file('.gitignore');
-    assert.file('.npmignore');
-    assert.file('CHANGELOG.md');
-    assert.file('.nvmrc');
-    assert.file('.gitignore');
-    assert.file('.npmignore');
-    assert.file('package.json');
+    assert.file([
+      '.babelrc',
+      '.editorconfig',
+      '.gitattributes',
+      '.gitignore',
+      '.npmignore',
+      '.yo-rc.json',
+      'CHANGELOG.md',
+      '.nvmrc',
+      '.gitignore',
+      '.npmignore',
+      'package.json',
+    ]);
   });
 
   it('should create test setup files', () => {
-    assert.file(`test/unit/${promtArgs.reactComponent}.js`);
-    assert.file('test/setup.js');
+    assert.file([
+      `tests/unit/${promtArgs.reactComponent}.spec.js`,
+      'tests/setup.js',
+    ]);
   });
 
   it('should create src content files', () => {
-
-    assert.file('src/js/export.js');
-    assert.file(`src/js/components/${promtArgs.reactComponent}.js`);
-    assert.file('src/scss/styles.scss');
+    assert.file([
+      'src/js/export.js',
+      `src/js/components/${promtArgs.reactComponent}.js`,
+      'src/scss/styles.scss',
+    ]);
   });
 });

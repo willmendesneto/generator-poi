@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Fixed
+- Adding `generator-poi-boilerplate-demo` component as dev dependency with how to start message
 
 ## [2.0.0][] - 2017-12-25
 

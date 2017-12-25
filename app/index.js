@@ -13,7 +13,6 @@ const commandExists = require('command-exists');
 const findParentDir = require('find-parent-dir');
 const generatorPackageJson = require('../package.json');
 const pascalcase = require('../util/pascalcase');
-const { feCoize, unFeCoize } = require('../util/fe-co');
 const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 
 const generatorVersion = generatorPackageJson.version;
@@ -67,8 +66,8 @@ module.exports = yeoman.extend({
       {
         type: 'input',
         name: 'reactComponent',
-        message: 'Your component name. You can either prefix it with `fe-co`, or the generator will do it for you',
-        default: feCoize(this.appname), // Default to current folder name
+        message: 'Your component name.',
+        default: this.appname, // Default to current folder name
       },
       {
         type: 'input',
@@ -93,8 +92,8 @@ module.exports = yeoman.extend({
 
     return this.prompt(prompts).then((props) => {
       const newProps = cloneDeep(props);
-      newProps.reactComponent = feCoize(props.reactComponent);
-      newProps.component = unFeCoize(props.reactComponent);
+      newProps.reactComponent = props.reactComponent;
+      newProps.component = props.reactComponent;
       newProps.componentCC = pascalcase(newProps.component);
       newProps.generatorVersion = generatorVersion;
       this.props = newProps;
@@ -195,27 +194,22 @@ module.exports = yeoman.extend({
         '-am',
         `"Initial commit from ${generatorPackageJson.name}@${generatorPackageJson.version}"`,
       ], { stdio: 'inherit' });
-      // spawn.sync('git', ['checkout', '-b', 'develop'], { stdio: 'inherit' });
+
     } else {
       // eslint-disable-next-line no-console
       console.log(`Skipping git initialization. .git folder found in parent directory [${gitDir}]`);
     }
-
-    // Prompt the user to update if there are potentially new versions available
-    // spawn.sync('yarn', ['outdated'], { stdio: 'inherit' });
 
     console.log(chalk.green.bold('\n\n🎉 Success 🎉')); // eslint-disable-line no-console
 
     if (this.props.autoLoad) {
       spawn('npm', ['start'], { stdio: 'inherit' });
     } else {
-      // Leading and trailing spaces important to differentiate output
-      // eslint-disable-next-line no-console
       console.log(`
 
 Get started:
 - npm start
-- visit http://localhost:3000
+- visit http://localhost:4000
       `);
     }
   },

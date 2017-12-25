@@ -19,17 +19,17 @@ describe('Generator POI boilerplate: bootstrap', () => {
 
   it('should create a `package.json` file with given data', () => {
     assert.jsonFileContent('package.json', {
-      name: `fe-co-${promtArgs.reactComponent}`,
+      name: promtArgs.reactComponent,
       generatorVersion: pkgVersion,
       description: promtArgs.description,
       author: promtArgs.author,
       repository: {
-        url: `git+ssh://git@github.com/willmendesneto/fe-co-${promtArgs.reactComponent}.git`,
+        url: `git+ssh://git@github.com/willmendesneto/${promtArgs.reactComponent}.git`,
       },
       bugs: {
-        url: `https://github.com/willmendesneto/fe-co-${promtArgs.reactComponent}/issues`,
+        url: `https://github.com/willmendesneto/${promtArgs.reactComponent}/issues`,
       },
-      homepage: `https://github.com/willmendesneto/fe-co-${promtArgs.reactComponent}#readme`,
+      homepage: `https://github.com/willmendesneto/${promtArgs.reactComponent}#readme`,
     });
   });
 

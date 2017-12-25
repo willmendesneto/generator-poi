@@ -9,7 +9,7 @@ import '../../scss/styles.scss'
 const <%= componentCC %> = ({ type }) => (
   <section className={`<%= component %>-wrapper is-${type}`}>
     <h1 className="<%= component %>-heading">
-      <p>This is your `<code className="<%= component %>-code">fe-co-<%= component %></code>` component</p>
+      <p>This is your `<code className="<%= component %>-code"><%= component %></code>` component</p>
     </h1>
     <HowToStart />
   </section>

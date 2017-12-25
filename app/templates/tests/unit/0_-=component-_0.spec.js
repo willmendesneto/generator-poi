@@ -15,6 +15,6 @@ describe('<%= component %>.js', () => {
   })
 
   it('should renders the component', () => {
-    expect(wrapper.find(<%= componentCC %>).length).to.eql(1)
+    expect(wrapper.length).to.eql(1)
   })
 })

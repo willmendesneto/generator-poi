@@ -7,10 +7,10 @@
   "scripts": {
     "prepublish": "npm run build:library",
     "demo:deploy": "npm run build:page -- --no-sourceMap && gh-pages -d dist",
-    "build:page": "NODE_ENV=production poi build",
+    "build:page": "NODE_ENV=production poi build --storybook",
     "build:library": "NODE_ENV=production poi build src/js/export.js --format cjs --filename.js client.js --no-sourceMap --no-html",
     "serve:dist": "npm run build:page && http-server dist",
-    "start": "poi",
+    "start": "poi --storybook",
     "watch": "poi watch",
     "test": "NODE_ENV=test nyc --require babel-register --require babel-polyfill --reporter=lcov --reporter=text-summary mocha ./tests/unit/**/*.spec.js --require ./tests/setup.js",
     "tdd": "npm run test -- --watch"
@@ -38,7 +38,6 @@
     "css-modules-require-hook": "^4.2.2",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "generator-poi-boilerplate-demo": "^1.1.2",
     "gh-pages": "^1.1.0",
     "http-server": "^0.10.0",
     "jsdom": "^11.5.1",
@@ -46,7 +45,9 @@
     "node-sass": "^4.7.2",
     "nyc": "^11.3.0",
     "poi": "^9.6.1",
-    "sass-loader": "^6.0.6"
+    "poi-preset-storybook": "^0.1.2",
+    "sass-loader": "^6.0.6",
+    "storybook-react": "^3.2.16"
   },
   "dependencies": {
     "prop-types": "^15.6.0",

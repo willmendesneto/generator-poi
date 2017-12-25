@@ -1,18 +1,8 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Demo } from 'generator-poi-boilerplate-demo'
+import { storiesOf } from 'storybook-react'
+import { action } from '@storybook/addon-actions'
 
-import <%= componentCC %> from './src/js/components/<%= component %>'
+import <%= componentCC %> from './src/js/export'
 
-import { homepage, name, description } from './package.json'
-
-render(
-  <Demo
-    title={name}
-    description={description}
-    repositoryUrl={homepage}
-  >
-    <<%= componentCC %> type={'1-column'} />
-  </ Demo>,
-  document.getElementById('app')
-)
+storiesOf('<%= componentCC %>', module)
+  .add('1 Column', () => <<%= componentCC %> type={'1-column'} />)
+  .add('2 Columns', () => <<%= componentCC %> type={'2-columns'} />)

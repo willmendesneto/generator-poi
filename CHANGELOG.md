@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+- Adding `react-storybook` as demo wrapper
+
 ## [1.0.1][] - 2017-12-24
 
 ### Added

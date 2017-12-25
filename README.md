@@ -49,7 +49,7 @@ npm install -g npm@latest
 Inside the existing boilerplate generated repository run:
 
 ```
-npx -p willmendesneto/generator-poi -c update-boilerplate
+npx -p generator-poi -c update-boilerplate
 ```
 
 update-boilerplate will apply the changes from the latest version of boilerplate as a git style merge - so you'll still need to manually fix conflicts.

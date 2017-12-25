@@ -5,6 +5,7 @@ This is a yo generator for building domain react frontend components. Install it
 For information on the project it generates, see _[About This
 Project](/app/templates/README.md#about-this-project)_.
 
+
 ## How to use
 
 [Make sure you are using `npm@>=5.2.0`](https://docs.npmjs.com/getting-started/installing-node)
@@ -18,12 +19,15 @@ _[`yarn` failing?](#yarn-failing)_
 
 Then answer the questions truthfully (_it'll know if you're lying_)
 
+
 ### update-boilerplate
 
-generator-poi provides a script `update-boilerplate` to help update repositories built with generator-poi
+`generator-poi` provides a script `update-boilerplate` based on [NPM package `update-yeoman-generator`](https://github.com/willmendesneto/update-yeoman-generator) to help update repositories built with generator-poi
 to the latest version.
 
+
 #### Setup
+
 In order to use update-boilerplate you'll need to
 [create a personal access token](https://github.com/settings/tokens)
 which has permissions to read private repositories:
@@ -37,6 +41,7 @@ You can run the following in the command line or add it your `.bashrc`
 ```bash
 export GITHUB_DIFF_TOKEN=token
 ```
+
 
 #### Run update-boilerplate
 
@@ -54,11 +59,13 @@ npx -p generator-poi -c update-boilerplate
 
 update-boilerplate will apply the changes from the latest version of boilerplate as a git style merge - so you'll still need to manually fix conflicts.
 
+
 ## Editing the generator
 
 To create a template file whos filename is replaced by one of the user-entered
 variables, use the delimiters `_-` and `-_` instead of the ejs style `<%` and
 `%>` (`<` and `>` are not allowed on Windows).
+
 
 ## Code architecture
 
@@ -80,6 +87,7 @@ Here is a selection of the interesting parts:
 └── test
     └── <a href="#testjs" title="Description of test files">*.js</a>
 </pre>
+
 
 #### `CHANGELOG.md`
 
@@ -171,6 +179,7 @@ npm login
 yarn login
 ```
 
+
 ## Code Coverage
 
 The [nyc](https://github.com/istanbuljs/nyc) command-line-client for Istanbul has been setup.
@@ -187,6 +196,15 @@ To enforce coverage on the component, edit the `nyc` section in the `package.jso
 and include the minimum `lines`, `statements`, `functions` and `branches` values.
 See [Configuring nyc](https://github.com/istanbuljs/nyc#configuring-nyc) for more info.
 
+
 ## Changes
 
 See [CHANGELOG.md](./CHANGELOG.md).
+
+
+## Author
+
+**Wilson Mendes (willmendesneto)**
++ <https://plus.google.com/+WilsonMendes>
++ <https://twitter.com/willmendesneto>
++ <http://github.com/willmendesneto>

@@ -20,7 +20,7 @@
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
   "bin": {
-    "update-boilerplate": "scripts/update-boilerplate/index.js"
+    "update-boilerplate": "update-boilerplate.js"
   },
   "homepage": "https://github.com/willmendesneto/generator-poi#readme",
   "dependencies": {
@@ -37,10 +37,12 @@
     "mkdirp": "^0.5.1",
     "node-diff3": "tonyg/node-diff3#patch-1",
     "upath": "^0.2.0",
+    "update-yeoman-generator": "^1.0.0",
     "yeoman-generator": "^1.1.1"
   },
   "keywords": [
     "yeoman-generator",
+    "generate-poi",
     "generate-poi-boilerplate"
   ],
   "devDependencies": {

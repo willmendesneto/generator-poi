@@ -86,6 +86,30 @@ module.exports = yeoman.extend({
     }
   },
 
+  _useSpecifiedNodeVersion() {
+    
+    const nvmIsAvailable = process.env.NVM_BIN || process.env.NVM_CD_FLAGS || process.env.NVM_DIR;
+    // TO-DO:
+    // Add integration with other Node Version Managers, such as N, for example
+    if (!nvmIsAvailable) {
+      console.log(chalk.bold.blue('Info: NVM not installed. Bypassing setup based on specified NodeJS version'));
+      return;
+    }
+
+    try {
+      const nvmrcNodeVersion = fs.readFileSync(`${process.cwd()}/.nvmrc`, 'utf8').trim();
+
+      spawn.sync('nvm', ['install', nvmrcNodeVersion], { stdio: 'inherit' });
+      spawn.sync('nvm', ['use', nvmrcNodeVersion], { stdio: 'inherit' });
+      spawn.sync('nvm', ['alias', 'default', nvmrcNodeVersion], { stdio: 'inherit' });
+
+      console.log(chalk.green(`Using NodeJS '${nvmrcNodeVersion}' as default NodeJS version`));
+    } catch (error) {
+      this.env.error(chalk.bold.red('Error when tried to use specified NodeJS version.', error));
+    }
+    
+  },
+
   initializing() {
     this._checkForNPM();
     this.appname = this._customAppName();
@@ -201,30 +225,8 @@ module.exports = yeoman.extend({
   },
 
   install() {
-    this._useSpecifiedNodeVersion()
+    this._useSpecifiedNodeVersion();
     this.installDependencies({ bower: false, npm: true, yarn: false });
-  },
-
-  _useSpecifiedNodeVersion() {
-    // TO-DO:
-    // Add integration with other Node Version Managers, such as N, for example
-    if (!commandExists.sync('nvm')) {
-      console.log(chalk.bold.blue('Info: NVM not installed. Bypassing setup based on specified NodeJS version'));
-      return;
-    }
-
-    try {
-      const nvmrcNodeVersion = fs.readFileSync(`${process.cwd()}/.nvmrc`);
-
-      spawn.sync('nvm', ['install', nvmrcNodeVersion], { stdio: 'inherit' });
-      spawn.sync('nvm', ['use', nvmrcNodeVersion], { stdio: 'inherit' });
-      spawn.sync('nvm', ['alias', 'default', nvmrcNodeVersion], { stdio: 'inherit' });
-
-      console.log(chalk.green(`Using NodeJS 'v${nvmrcNodeVersion}' as default NodeJS version`));
-    } catch (error) {
-      this.env.error(chalk.bold.red('Error when tried to use specified NodeJS version.', error));
-    }
-    
   },
 
   end() {

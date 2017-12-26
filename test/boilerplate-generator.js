@@ -34,6 +34,10 @@ describe('Generator POI boilerplate: bootstrap', () => {
   });
 
   it('should create a `README.md` file with given data', () => {
+    assert.fileContent('.nvmrc', 'v8.9.1');
+  });
+
+  it('should create a `README.md` file with given data', () => {
     assert.fileContent('README.md', promtArgs.description);
     assert.fileContent('README.md', promtArgs.reactComponent);
     assert.fileContent('README.md', `https://github.com/willmendesneto/generator-poi/tree/v${pkgVersion}#code-architecture`);
@@ -52,6 +56,24 @@ describe('Generator POI boilerplate: bootstrap', () => {
       '.gitignore',
       '.npmignore',
       'package.json',
+    ]);
+  });
+
+  it('should create configuration files from libraries', () => {
+    assert.file([
+      'src/js/export.js',
+      'index-library.js',
+      'index.ejs',
+      'poi.config.library.js',
+    ]);
+  });
+
+  it('should create configuration files from pages', () => {
+    assert.file([
+      'storybook/addons.js',
+      'storybook/config.js',
+      'index.js',
+      'poi.config.js',
     ]);
   });
 

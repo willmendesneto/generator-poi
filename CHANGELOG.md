@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixed
+- Fixing `npm run build:page` command
+
+### Added
+- Increasing code coverage on templates
+- Using and installing NodeJS version via NVM
+- Tests for new template files
 
 ## [2.1.1][] - 2017-12-26
 ### Added

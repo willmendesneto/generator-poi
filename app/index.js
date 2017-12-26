@@ -51,13 +51,43 @@ module.exports = yeoman.extend({
     return this.fs.readJSON(this.destinationPath('package.json'), {})[property];
   },
 
-  initializing() {
+  _projectHasParentFolder(folder) {
+    let gitDir = null;
+    try {
+      gitDir = findParentDir.sync(process.cwd(), folder);
+    } catch (error) {
+      gitDir = null;
+    }
+
+    return !!gitDir;
+  },
+
+  _runGitInitCommand() {
+    if (this._projectHasParentFolder('.git')) {
+      console.log(`Skipping git initialization. .git folder found in parent directory [${gitDir}]`);
+      return;
+    }
+
+    spawn.sync('git', ['init'], { stdio: 'inherit' });
+    spawn.sync('git', ['add', '-A'], { stdio: 'inherit' });
+    spawn.sync('git', [
+      'commit',
+      '-am',
+      `"Initial commit from ${generatorPackageJson.name}@${generatorPackageJson.version}"`,
+    ], { stdio: 'inherit' });
+
+  },
+
+  _checkForNPM() {
     if (!commandExists.sync('npm')) {
       // Hard fail without npm.
       this.env.error(chalk.bold.red('Error: Components require NPM.\nInstallation: https://www.npmjs.com/get-npm'));
       return;
     }
+  },
 
+  initializing() {
+    this._checkForNPM();
     this.appname = this._customAppName();
   },
 
@@ -67,12 +97,15 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'reactComponent',
         message: 'Your component name.',
-        default: this.appname, // Default to current folder name
+        store: true,
+        default: this.appname,
       },
       {
         type: 'input',
         name: 'description',
         message: 'Write a brief description for your component?',
+        store: true,
+        default: 'No description provided'
       },
       {
         type: 'input',
@@ -168,7 +201,30 @@ module.exports = yeoman.extend({
   },
 
   install() {
+    this._useSpecifiedNodeVersion()
     this.installDependencies({ bower: false, npm: true, yarn: false });
+  },
+
+  _useSpecifiedNodeVersion() {
+    // TO-DO:
+    // Add integration with other Node Version Managers, such as N, for example
+    if (!commandExists.sync('nvm')) {
+      console.log(chalk.bold.blue('Info: NVM not installed. Bypassing setup based on specified NodeJS version'));
+      return;
+    }
+
+    try {
+      const nvmrcNodeVersion = fs.readFileSync(`${process.cwd()}/.nvmrc`);
+
+      spawn.sync('nvm', ['install', nvmrcNodeVersion], { stdio: 'inherit' });
+      spawn.sync('nvm', ['use', nvmrcNodeVersion], { stdio: 'inherit' });
+      spawn.sync('nvm', ['alias', 'default', nvmrcNodeVersion], { stdio: 'inherit' });
+
+      console.log(chalk.green(`Using NodeJS 'v${nvmrcNodeVersion}' as default NodeJS version`));
+    } catch (error) {
+      this.env.error(chalk.bold.red('Error when tried to use specified NodeJS version.', error));
+    }
+    
   },
 
   end() {
@@ -179,38 +235,21 @@ module.exports = yeoman.extend({
     //   () => {}
     // );
 
-    let gitDir = null;
-    try {
-      gitDir = findParentDir.sync(process.cwd(), '.git');
-    } catch (error) {
-      gitDir = null;
-    }
-
-    if (gitDir === null) {
-      spawn.sync('git', ['init'], { stdio: 'inherit' });
-      spawn.sync('git', ['add', '-A'], { stdio: 'inherit' });
-      spawn.sync('git', [
-        'commit',
-        '-am',
-        `"Initial commit from ${generatorPackageJson.name}@${generatorPackageJson.version}"`,
-      ], { stdio: 'inherit' });
-
-    } else {
-      // eslint-disable-next-line no-console
-      console.log(`Skipping git initialization. .git folder found in parent directory [${gitDir}]`);
-    }
+    this._runGitInitCommand();
 
     console.log(chalk.green.bold('\n\n🎉 Success 🎉')); // eslint-disable-line no-console
 
     if (this.props.autoLoad) {
       spawn('npm', ['start'], { stdio: 'inherit' });
     } else {
-      console.log(`
+      console.log(chalk.green.bold(`
 
 Get started:
 - npm start
 - visit http://localhost:4000
-      `);
+
+If you want to more about the available commands read your 'README.md' or use 'npm run-script' in your terminal
+      `));
     }
   },
 });

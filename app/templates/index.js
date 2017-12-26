@@ -1,10 +1,7 @@
-import { storiesOf, setAddon } from 'storybook-react'
-import JSXAddon from 'storybook-addon-jsx';
+import { storiesOf } from 'storybook-react'
 
 import <%= componentCC %> from './src/js/export'
 
-setAddon(JSXAddon)
-
 storiesOf('<%= componentCC %>', module)
-  .addWithJSX('1 Column', () => <<%= componentCC %> type={'1-column'} />)
-  .addWithJSX('2 Columns', () => <<%= componentCC %> type={'2-columns'} />)
+  .add('1 Column', () => <<%= componentCC %> type={'1-column'} />)
+  .add('2 Columns', () => <<%= componentCC %> type={'2-columns'} />)

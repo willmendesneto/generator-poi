@@ -7,11 +7,11 @@
   "scripts": {
     "prepublish": "npm run build:library",
     "demo:deploy": "npm run build:page -- --no-sourceMap && gh-pages -d dist",
-    "build:page": "NODE_ENV=production poi build --storybook",
-    "build:library": "NODE_ENV=production poi build src/js/export.js --format cjs --filename.js client.js --no-sourceMap --no-html",
     "serve:dist": "npm run build:page && http-server dist",
-    "start": "poi --storybook",
-    "watch": "poi watch",
+    "build:page": "NODE_ENV=production poi build --config poi.config.js --storybook",
+    "build:library": "NODE_ENV=production poi build src/js/export.js --config poi.config.library.js --format cjs --filename.js client.js --no-sourceMap --no-html",
+    "start": "poi --config poi.config.js --storybook",
+    "watch": "poi watch --config poi.config.js",
     "test": "NODE_ENV=test nyc --require babel-register --require babel-polyfill --reporter=lcov --reporter=text-summary mocha ./tests/unit/**/*.spec.js --require ./tests/setup.js",
     "tdd": "npm run test -- --watch"
   },

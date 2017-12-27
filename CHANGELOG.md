@@ -8,7 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Fixed
 - Fixing `npm run build:page` command
 
+## Tests
+- Increasing code coverage
+
 ### Added
+- Bumping `generator-poi-boilerplate-demo` to `1.2.0`
+- Adding tests for new template files
+- using and installing NodeJS version via NVM
 - Increasing code coverage on templates
 - Using and installing NodeJS version via NVM
 - Tests for new template files

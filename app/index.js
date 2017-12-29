@@ -164,7 +164,8 @@ module.exports = yeoman.extend({
     const dotFileGlob = '{git,npm}ignore';
     // eslint-disable-next-line prefer-template
     const namedTemplateGlob = './**/*' + FILE_DELIM_OPEN + '*' + FILE_DELIM_CLOSE + '*';
-    const templates = glob.sync('./**/*', {
+    
+    glob.sync('./**/*', {
       cwd: this.sourceRoot(),
       nodir: true,
       dot: true,
@@ -174,64 +175,50 @@ module.exports = yeoman.extend({
         namedTemplateGlob,
         './**/node_shrinkwrap/**/*',
       ],
-    });
-    const dirs = glob.sync('./**/*/', {
-      cwd: this.sourceRoot(),
-      dot: true,
-    });
-    const dotTemplates = glob.sync(dotFileGlob, {
-      cwd: this.sourceRoot(),
-      dot: true,
-    });
-    const namedTemplates = glob.sync(namedTemplateGlob, {
-      cwd: this.sourceRoot(),
-      dot: true,
+    }).forEach((template) => {
+      const renderedFile = ejs.render(template, this.props);
+      this.fs.copyTpl(
+        this.templatePath(template),
+        this.destinationPath(renderedFile),
+        this.props
+      );
     });
 
-    for (let index = 0; index < dotTemplates.length; index++) {
-      const dotTemplate = dotTemplates[index];
+    glob.sync('./**/*/', { dot: true, cwd: this.sourceRoot() }).forEach((dir) => {
+      mkdirp.sync(this.destinationPath(dir));
+    });
+
+    glob.sync(dotFileGlob, {
+      cwd: this.sourceRoot(),
+      dot: true,
+    }).forEach((dotTemplate) => {
       const renderedFile = ejs.render(dotTemplate, this.props);
       this.fs.copyTpl(
         this.templatePath(dotTemplate),
         this.destinationPath(`.${renderedFile}`),
         this.props
       );
-    }
+    });
 
-    for (let index = 0; index < dirs.length; index++) {
-      mkdirp.sync(this.destinationPath(dirs[index]));
-    }
-
-    let template;
-    let renderedFile;
-    let ejsFile;
-
-    for (let index = 0; index < templates.length; index++) {
-      template = templates[index];
-      renderedFile = ejs.render(template, this.props);
-      this.fs.copyTpl(
-        this.templatePath(template),
-        this.destinationPath(ejs.render(template, this.props)),
-        this.props
-      );
-    }
-
-    for (let index = 0; index < namedTemplates.length; index++) {
-      template = namedTemplates[index];
-      ejsFile = template
+    glob.sync(namedTemplateGlob, {
+      cwd: this.sourceRoot(),
+      dot: true,
+    }).forEach((template) => {
+      const ejsFile = template
         .replace(FILE_DELIM_OPEN, '<%')
         .replace(FILE_DELIM_CLOSE, '%>');
-      renderedFile = ejs.render(ejsFile, this.props);
+      const renderedFile = ejs.render(ejsFile, this.props);
       this.fs.copyTpl(
         this.templatePath(template),
         this.destinationPath(renderedFile),
         this.props
       );
-    }
+    });
   },
 
   install() {
-    // this._useSpecifiedNodeVersion();
+    spawn.sync('ls', ['-la'], { stdio: 'inherit' });
+    this._useSpecifiedNodeVersion();
     this.installDependencies({ bower: false, npm: true, yarn: false });
   },
 

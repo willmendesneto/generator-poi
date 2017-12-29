@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixed 
+- Cleaning up npmignore and gitignore
 
 ## [2.2.4][] - 2017-12-28
 ## Fixed

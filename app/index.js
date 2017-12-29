@@ -170,7 +170,6 @@ module.exports = yeoman.extend({
       nodir: true,
       dot: true,
       ignore: [
-        // eslint-disable-next-line prefer-template
         './**/' + dotFileGlob,
         namedTemplateGlob,
         './**/node_shrinkwrap/**/*',

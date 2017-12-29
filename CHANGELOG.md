@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixed
+- Keep the install flow if `.nvmrc` is not available
 
 ## [2.2.0][] - 2017-12-27
 ## Fixed

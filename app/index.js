@@ -105,7 +105,7 @@ module.exports = yeoman.extend({
 
       console.log(chalk.green(`Using NodeJS '${nvmrcNodeVersion}' as default NodeJS version`));
     } catch (error) {
-      this.env.error(chalk.bold.red('Error when tried to use specified NodeJS version.', error));
+      console.log(chalk.bold.red('Error when tried to use specified NodeJS version. Keeping the steps using the system default NodeJS.'));
     }
     
   },

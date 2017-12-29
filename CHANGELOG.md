@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.2.6][] - 2017-12-28
 ## Fixed 
 - Cleaning up npmignore and gitignore
 
@@ -67,7 +69,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created `generator-poi` project
 
 
-[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.4...HEAD
+[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.6...HEAD
+[2.2.6]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.4...v2.2.6
 [2.2.4]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.3...v2.2.4
 [2.2.3]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.3-0...v2.2.3
 [2.2.3-0]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.2...v2.2.3-0

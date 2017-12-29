@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.2.9][] - 2017-12-28
 ## Chore
 - Adding MIT license
 - Updating `.gitignore` file
@@ -80,7 +82,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created `generator-poi` project
 
 
-[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.8...HEAD
+[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.9...HEAD
+[2.2.9]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.8...v2.2.9
 [2.2.8]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.7...v2.2.8
 [2.2.7]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.6...v2.2.7
 [2.2.6]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.4...v2.2.6

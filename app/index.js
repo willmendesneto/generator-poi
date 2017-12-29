@@ -188,43 +188,50 @@ module.exports = yeoman.extend({
       dot: true,
     });
 
-    dirs.forEach((file) => {
-      mkdirp(this.destinationPath(file));
-    });
-
-    templates.forEach((file) => {
-      const renderedFile = ejs.render(file, this.props);
+    for (let index = 0; index < dotTemplates.length; index++) {
+      const dotTemplate = dotTemplates[index];
+      const renderedFile = ejs.render(dotTemplate, this.props);
       this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath(renderedFile),
-        this.props
-      );
-    });
-
-    namedTemplates.forEach((file) => {
-      const ejsFile = file
-        .replace(FILE_DELIM_OPEN, '<%')
-        .replace(FILE_DELIM_CLOSE, '%>');
-      const renderedFile = ejs.render(ejsFile, this.props);
-      this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath(renderedFile),
-        this.props
-      );
-    });
-
-    dotTemplates.forEach((file) => {
-      const renderedFile = ejs.render(file, this.props);
-      this.fs.copyTpl(
-        this.templatePath(file),
+        this.templatePath(dotTemplate),
         this.destinationPath(`.${renderedFile}`),
         this.props
       );
-    });
+    }
+
+    for (let index = 0; index < dirs.length; index++) {
+      mkdirp.sync(this.destinationPath(dirs[index]));
+    }
+
+    let template;
+    let renderedFile;
+    let ejsFile;
+
+    for (let index = 0; index < templates.length; index++) {
+      template = templates[index];
+      renderedFile = ejs.render(template, this.props);
+      this.fs.copyTpl(
+        this.templatePath(template),
+        this.destinationPath(ejs.render(template, this.props)),
+        this.props
+      );
+    }
+
+    for (let index = 0; index < namedTemplates.length; index++) {
+      template = namedTemplates[index];
+      ejsFile = template
+        .replace(FILE_DELIM_OPEN, '<%')
+        .replace(FILE_DELIM_CLOSE, '%>');
+      renderedFile = ejs.render(ejsFile, this.props);
+      this.fs.copyTpl(
+        this.templatePath(template),
+        this.destinationPath(renderedFile),
+        this.props
+      );
+    }
   },
 
   install() {
-    this._useSpecifiedNodeVersion();
+    // this._useSpecifiedNodeVersion();
     this.installDependencies({ bower: false, npm: true, yarn: false });
   },
 

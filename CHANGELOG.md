@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixed
+- Writing files using `for` instead of `forEach`
 
 ## [2.2.2][] - 2017-12-28
 ## Fixed

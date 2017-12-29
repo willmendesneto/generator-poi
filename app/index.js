@@ -64,7 +64,7 @@ module.exports = yeoman.extend({
 
   _runGitInitCommand() {
     if (this._projectHasParentFolder('.git')) {
-      console.log(`Skipping git initialization. .git folder found in parent directory [${gitDir}]`);
+      console.log(`Skipping git initialization. .git folder found in parent directory ['.git']`);
       return;
     }
 
@@ -201,16 +201,6 @@ module.exports = yeoman.extend({
       );
     });
 
-    dotTemplates.forEach((file) => {
-      const renderedFile = ejs.render(file, this.props);
-      this.fs.copyTpl(
-        this.templatePath(file),
-        // eslint-disable-next-line prefer-template
-        this.destinationPath('.' + renderedFile),
-        this.props
-      );
-    });
-
     namedTemplates.forEach((file) => {
       const ejsFile = file
         .replace(FILE_DELIM_OPEN, '<%')
@@ -219,6 +209,15 @@ module.exports = yeoman.extend({
       this.fs.copyTpl(
         this.templatePath(file),
         this.destinationPath(renderedFile),
+        this.props
+      );
+    });
+
+    dotTemplates.forEach((file) => {
+      const renderedFile = ejs.render(file, this.props);
+      this.fs.copyTpl(
+        this.templatePath(file),
+        this.destinationPath(`.${renderedFile}`),
         this.props
       );
     });

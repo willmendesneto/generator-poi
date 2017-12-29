@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][]
 ## Chore
 - Adding MIT license
+- Updating `.gitignore` file
 
 ## [2.2.8][] - 2017-12-28
 ## Chore

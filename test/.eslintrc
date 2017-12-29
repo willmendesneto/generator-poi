@@ -1,7 +1,0 @@
-{
-  "extends": "willmendesneto/eslint-config-domain/test",
-  "rules": {
-    "no-unused-expressions": "off",
-    "id-length": "off"
-  }
-}

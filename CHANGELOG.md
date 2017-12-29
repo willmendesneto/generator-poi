@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixed
+- Adding `files` field in `package.json`
 
 ## [2.2.6][] - 2017-12-28
 ## Fixed 

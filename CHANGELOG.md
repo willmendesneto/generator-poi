@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixed
+- Removing ignored files
 
 ## [2.2.3][] - 2017-12-28
 ## Fixed 

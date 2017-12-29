@@ -1,7 +1,1 @@
-.dependencies.json
-.editorconfig
-.gitattributes
-.gitignore
-.eslintrc.js
-.travis.yml
-test
+test/

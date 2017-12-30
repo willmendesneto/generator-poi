@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.2.10][] - 2017-12-29
 ## Fixes
 - Removing `files` information on `app/templates/package.json` to avoid npm issue when publishing package. When the package was published for some reason NPM was reading both `package.json#files` information and the publish was broken
 
@@ -84,7 +86,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created `generator-poi` project
 
 
-[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.9...HEAD
+[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.10...HEAD
+[2.2.10]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.9...v2.2.10
 [2.2.9]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.8...v2.2.9
 [2.2.8]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.7...v2.2.8
 [2.2.7]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.6...v2.2.7

@@ -40,11 +40,6 @@
     "update-yeoman-generator": "^1.0.0",
     "yeoman-generator": "^1.1.1"
   },
-  "files": [
-    "app",
-    "assets",
-    "util"
-  ],
   "keywords": [
     "yeoman-generator",
     "generate-poi",

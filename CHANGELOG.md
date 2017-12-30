@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Fixes
+- Removing `files` information on `app/templates/package.json` to avoid npm issue when publishing package. When the package was published for some reason NPM was reading both `package.json#files` information and the publish was broken
 
 ## [2.2.9][] - 2017-12-28
 ## Chore

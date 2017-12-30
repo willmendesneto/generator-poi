@@ -15,10 +15,6 @@
     "test": "NODE_ENV=test nyc --require babel-register --require babel-polyfill --reporter=lcov --reporter=text-summary mocha ./tests/unit/**/*.spec.js --require ./tests/setup.js",
     "tdd": "npm run test -- --watch"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/willmendesneto/<%= reactComponent %>.git"

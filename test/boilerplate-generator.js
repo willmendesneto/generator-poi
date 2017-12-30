@@ -10,6 +10,7 @@ describe('Generator POI boilerplate: bootstrap', () => {
     team: 'My Team',
     author: 'John Doe',
     autoLoad: false,
+    updateScripts: false,
   };
 
   before(() =>

@@ -110,6 +110,11 @@ module.exports = yeoman.extend({
     
   },
 
+  _updateNpmPackages() {
+    spawn.sync('npm', ['run', 'check-updates'], { stdio: 'inherit' });
+    console.log(chalk.green('NodeJS packages updated'));
+  },
+
   initializing() {
     this._checkForNPM();
     this.appname = this._customAppName();
@@ -137,6 +142,13 @@ module.exports = yeoman.extend({
         message: 'What is your name?',
         store: true,
         default: this._packageAuthor(),
+      },
+      {
+        type: 'confirm',
+        name: 'updateScripts',
+        message: 'Auto update npm packages for this generator?',
+        store: true,
+        default: true,
       },
       {
         type: 'confirm',
@@ -216,8 +228,10 @@ module.exports = yeoman.extend({
   },
 
   install() {
-    spawn.sync('ls', ['-la'], { stdio: 'inherit' });
     this._useSpecifiedNodeVersion();
+    if (this.props.updateScripts) {
+      this._updateNpmPackages();
+    }
     this.installDependencies({ bower: false, npm: true, yarn: false });
   },
 

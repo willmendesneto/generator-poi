@@ -5,6 +5,7 @@
   "description": "<%= description %>",
   "main": "dist/client.js",
   "scripts": {
+    "check-updates": "ncu -u",
     "prepublish": "npm run build:library",
     "demo:deploy": "npm run build:page -- --no-sourceMap && gh-pages -d dist",
     "serve:dist": "npm run build:page && http-server dist",
@@ -42,6 +43,7 @@
     "jsdom": "^11.5.1",
     "mocha": "^4.0.1",
     "node-sass": "^4.7.2",
+    "npm-check-updates": "^2.14.0",
     "nyc": "^11.3.0",
     "poi": "^9.6.1",
     "poi-preset-storybook": "^0.1.2",

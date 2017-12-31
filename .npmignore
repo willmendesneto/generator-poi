@@ -1,2 +1,5 @@
 test
 .DS_Store
+.nyc_output/
+.vscode/
+coverage/

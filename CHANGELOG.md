@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][]
 ### Added
 - New ignored files/folders in `.npmignore` file
+- Bumping `update-yeoman-generator` to `1.2.1`
 
 ## [2.2.11][] - 2017-12-29
 ## Added

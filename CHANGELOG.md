@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.2.12][] - 2017-12-31
 ### Added
 - New ignored files/folders in `.npmignore` file
 - Bumping `update-yeoman-generator` to `1.2.1`
@@ -93,7 +95,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created `generator-poi` project
 
 
-[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.11...HEAD
+[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.12...HEAD
+[2.2.12]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.11...v2.2.12
 [2.2.11]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.10...v2.2.11
 [2.2.10]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.9...v2.2.10
 [2.2.9]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.8...v2.2.9

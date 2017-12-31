@@ -1,6 +1,6 @@
 {
   "name": "generator-poi",
-  "version": "2.2.11",
+  "version": "2.2.12",
   "description": "Generator for react components using POI",
   "repository": {
     "type": "git",

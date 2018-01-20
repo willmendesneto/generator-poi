@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Refactored
+- Removing `update-boilerplate` script in favour of `update-yeoman-boilerplate` repository
+
 ## [2.2.12][] - 2017-12-31
 ### Added
 - New ignored files/folders in `.npmignore` file

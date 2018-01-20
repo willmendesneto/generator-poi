@@ -22,15 +22,15 @@ _[`yarn` failing?](#yarn-failing)_
 Then answer the questions truthfully (_it'll know if you're lying_)
 
 
-### update-boilerplate
+### update-yeoman-generator
 
-`generator-poi` provides a script `update-boilerplate` based on [NPM package `update-yeoman-generator`](https://github.com/willmendesneto/update-yeoman-generator) to help update repositories built with generator-poi
+`generator-poi` provides a script `update-yeoman-generator` based on [NPM package `update-yeoman-generator`](https://github.com/willmendesneto/update-yeoman-generator) to help update repositories built with generator-poi
 to the latest version.
 
 
 #### Setup
 
-In order to use update-boilerplate you'll need to
+In order to use update-yeoman-generator you'll need to
 [create a personal access token](https://github.com/settings/tokens)
 which has permissions to read private repositories:
 
@@ -45,7 +45,7 @@ export GITHUB_DIFF_TOKEN=token
 ```
 
 
-#### Run update-boilerplate
+#### Update your boilerplate
 
 Make sure you have `npm@>=5.2.0`:
 
@@ -53,13 +53,19 @@ Make sure you have `npm@>=5.2.0`:
 npm install -g npm@latest
 ```
 
-Inside the existing boilerplate generated repository run:
+After that, install [NPM package `update-yeoman-generator`](https://github.com/willmendesneto/update-yeoman-generator) globally
 
 ```
-npx -p generator-poi -c update-boilerplate
+npm install -g update-yeoman-generator
 ```
 
-update-boilerplate will apply the changes from the latest version of boilerplate as a git style merge - so you'll still need to manually fix conflicts.
+Inside the existing boilerplate generated repository run this command:
+
+```
+update-yeoman-generator --generator willmendesneto/generator-poi --ejs-open 0_- --ejs-close -_0
+```
+
+`update-yeoman-generator` command will apply the changes from the latest version of boilerplate as a git style merge - so you'll still need to manually fix conflicts. If you want to understand the reasons why you should pass specific parameters, please check `update-yeoman-generator` README.md with all the options.
 
 
 ## Editing the generator

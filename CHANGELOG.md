@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+- Adding Travis-CI integration
+
+### Refactored
+- Removing `update-boilerplate` script in favour of `update-yeoman-boilerplate` repository
+
 ## [3.0.0][] - 2018-01-21
 
 ### Added

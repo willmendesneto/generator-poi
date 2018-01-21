@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [3.0.1][] - 2018-01-21
+
 ### Added
 - Adding Travis-CI integration
 
@@ -109,7 +111,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created `generator-poi` project
 
 
-[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.12...v3.0.0
 [2.2.12]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.11...v2.2.12
 [2.2.11]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.2.10...v2.2.11

@@ -1,5 +1,15 @@
 # PoiJS -  Yeoman generator 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/willmendesneto/generator-poi.svg)](https://greenkeeper.io/)
+[![npm version](https://badge.fury.io/js/generator-poi.svg)](http://badge.fury.io/js/generator-poi) [![npm downloads](https://img.shields.io/npm/dm/generator-poi.svg)](https://npmjs.org/generator-poi)
+
+[![Build Status](https://travis-ci.org/willmendesneto/generator-poi.svg?branch=master)](https://travis-ci.org/willmendesneto/generator-poi)
+[![Dependency Status](https://david-dm.org/willmendesneto/generator-poi.svg)](https://david-dm.org/willmendesneto/generator-poi)
+
+[![NPM](https://nodei.co/npm/generator-poi.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/generator-poi)
+[![NPM](https://nodei.co/npm-dl/generator-poi.png?height=3&months=3)](https://npmjs.org/generator-poi)
+
+
 ![Yeoman](./assets/yeoman-masthead.png)
 
 This is a yo generator for building domain react frontend components. Install it, run it and start building components!

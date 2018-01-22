@@ -10,5 +10,4 @@ before_install:
 install:
   - npm install --no-progress
 script:
-  - npm run editorconfig-tools-check
   - npm test -- -R dot --check-leaks

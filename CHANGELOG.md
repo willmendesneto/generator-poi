@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+- Adding OSS badges
+
 ## [3.0.1][] - 2018-01-21
 
 ### Added

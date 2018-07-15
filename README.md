@@ -40,19 +40,11 @@ to the latest version.
 
 #### Setup
 
-In order to use update-yeoman-generator you'll need to
-[create a personal access token](https://github.com/settings/tokens)
-which has permissions to read private repositories:
+If you are using this project for private repositories, you'll need to [create a token](https://github.com/settings/tokens/new?scopes=notifications,repo&description=Update%20Yeoman%20Generator) with the *notifications* and *repo* permissions.
 
 ![Token permissions](./assets/token.png)
 
-Then, set the environment variable `GITHUB_DIFF_TOKEN` to the token you've just created
-
-You can run the following in the command line or add it your `.bashrc`
-
-```bash
-export GITHUB_DIFF_TOKEN=token
-```
+After generate your token, pass the information token using the flag `--github-token` in your command.
 
 
 #### Update your boilerplate
@@ -72,7 +64,10 @@ npm install -g update-yeoman-generator
 Inside the existing boilerplate generated repository run this command:
 
 ```
-update-yeoman-generator --generator willmendesneto/generator-poi --ejs-open 0_- --ejs-close -_0
+update-yeoman-generator --generator willmendesneto/generator-poi \
+  --github-token <your-github-token> \
+  --ejs-open 0_- \
+  --ejs-close -_0
 ```
 
 `update-yeoman-generator` command will apply the changes from the latest version of boilerplate as a git style merge - so you'll still need to manually fix conflicts. If you want to understand the reasons why you should pass specific parameters, please check `update-yeoman-generator` README.md with all the options.

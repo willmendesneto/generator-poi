@@ -21,8 +21,9 @@ Project](/app/templates/README.md#about-this-project)_.
 [Make sure you are using `npm@>=5.2.0`](https://docs.npmjs.com/getting-started/installing-node)
 
 ```
+npm install -g yo generator-poi
 mkdir co-my-component && cd co-my-component
-npx -p yo -p generator-poi -c 'yo poi-boilerplate'
+yo poi
 ```
 
 _[`yarn` failing?](#yarn-failing)_

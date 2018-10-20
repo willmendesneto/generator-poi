@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Updating `README.md`
 - Updating package keywords
 - Updating yeoman-generator to latest version
+- Updating `how to use` steps
 
 ## [3.0.1][] - 2018-01-21
 

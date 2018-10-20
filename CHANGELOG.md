@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [3.1.0][] - 2018-10-21
+
 ### Added
 
 - Adding OSS badges
@@ -188,3 +190,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.0.1]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/willmendesneto/generator-poi-boilerplate/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/willmendesneto/generator-poi-boilerplate/tree/v1.0.1
+
+
+[Unreleased]: https://github.com/willmendesneto/generator-poi/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/willmendesneto/generator-poi/tree/v3.1.0

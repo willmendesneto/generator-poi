@@ -42,11 +42,12 @@
     "generate-poi-boilerplate"
   ],
   "devDependencies": {
-    "changelog-verify": "^1.0.4",
-    "eslint": "^3.12.2",
-    "mocha": "^3.5.3",
-    "version-changelog": "^2.0.0",
-    "yeoman-assert": "^3.1.0",
-    "yeoman-test": "^1.7.0"
+    "changelog-verify": "^1.1.0",
+    "eslint": "^5.7.0",
+    "mocha": "^5.2.0",
+    "uninstall": "0.0.0",
+    "version-changelog": "^3.1.0",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
   }
 }

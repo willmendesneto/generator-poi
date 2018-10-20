@@ -1,8 +1,8 @@
-import { configure, addDecorator } from 'storybook-react'
-import { setOptions } from '@storybook/addon-options'
-import { checkA11y } from '@storybook/addon-a11y'
+import { configure, addDecorator } from 'storybook-react';
+import { setOptions } from '@storybook/addon-options';
+import { checkA11y } from '@storybook/addon-a11y';
 
-import { homepage, name } from '../package.json'
+import { homepage, name } from '../package.json';
 
 setOptions({
   name,
@@ -13,12 +13,12 @@ setOptions({
   showSearchBox: false,
   downPanelInRight: true,
   sidebarAnimations: false,
-})
+});
 
-addDecorator(checkA11y)
+addDecorator(checkA11y);
 
 function loadStories() {
-  require('../index')
+  require('../index');
 }
 
-configure(loadStories, module)
+configure(loadStories, module);

@@ -8,9 +8,7 @@ module.exports = {
   FILE_DELIM_CLOSE,
 
   isEjsTemplate: (filename, props) => {
-    const ejsFilename = filename
-      .replace(FILE_DELIM_OPEN, '<%')
-      .replace(FILE_DELIM_CLOSE, '%>');
+    const ejsFilename = filename.replace(FILE_DELIM_OPEN, '<%').replace(FILE_DELIM_CLOSE, '%>');
     return ejsFilename !== ejs.render(ejsFilename, props);
   },
 };

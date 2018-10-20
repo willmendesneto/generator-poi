@@ -3,7 +3,7 @@
 const yeoman = require('yeoman-generator');
 const spawn = require('cross-spawn');
 const glob = require('glob');
-const fs = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
 const cloneDeep = require('lodash/cloneDeep');
@@ -18,7 +18,6 @@ const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 const generatorVersion = generatorPackageJson.version;
 
 module.exports = yeoman.extend({
-
   _customAppName() {
     const privateNpmRepository = /@.*\/(.*)/;
     let appname = this._getPackageProp('name');
@@ -70,29 +69,39 @@ module.exports = yeoman.extend({
 
     spawn.sync('git', ['init'], { stdio: 'inherit' });
     spawn.sync('git', ['add', '-A'], { stdio: 'inherit' });
-    spawn.sync('git', [
-      'commit',
-      '-am',
-      `"Initial commit from ${generatorPackageJson.name}@${generatorPackageJson.version}"`,
-    ], { stdio: 'inherit' });
-
+    spawn.sync(
+      'git',
+      [
+        'commit',
+        '-am',
+        `"Initial commit from ${generatorPackageJson.name}@${generatorPackageJson.version}"`,
+      ],
+      { stdio: 'inherit' },
+    );
   },
 
   _checkForNPM() {
     if (!commandExists.sync('npm')) {
       // Hard fail without npm.
-      this.env.error(chalk.bold.red('Error: Components require NPM.\nInstallation: https://www.npmjs.com/get-npm'));
+      this.env.error(
+        chalk.bold.red(
+          'Error: Components require NPM.\nInstallation: https://www.npmjs.com/get-npm',
+        ),
+      );
       return;
     }
   },
 
   _useSpecifiedNodeVersion() {
-    
     const nvmIsAvailable = process.env.NVM_BIN || process.env.NVM_CD_FLAGS || process.env.NVM_DIR;
     // TO-DO:
     // Add integration with other Node Version Managers, such as N, for example
     if (!nvmIsAvailable) {
-      console.log(chalk.bold.blue('Info: NVM not installed. Bypassing setup based on specified NodeJS version'));
+      console.log(
+        chalk.bold.blue(
+          'Info: NVM not installed. Bypassing setup based on specified NodeJS version',
+        ),
+      );
       return;
     }
 
@@ -101,13 +110,18 @@ module.exports = yeoman.extend({
 
       spawn.sync('nvm', ['install', nvmrcNodeVersion], { stdio: 'inherit' });
       spawn.sync('nvm', ['use', nvmrcNodeVersion], { stdio: 'inherit' });
-      spawn.sync('nvm', ['alias', 'default', nvmrcNodeVersion], { stdio: 'inherit' });
+      spawn.sync('nvm', ['alias', 'default', nvmrcNodeVersion], {
+        stdio: 'inherit',
+      });
 
       console.log(chalk.green(`Using NodeJS '${nvmrcNodeVersion}' as default NodeJS version`));
     } catch (error) {
-      console.log(chalk.bold.red('Error when tried to use specified NodeJS version. Keeping the steps using the system default NodeJS.'));
+      console.log(
+        chalk.bold.red(
+          'Error when tried to use specified NodeJS version. Keeping the steps using the system default NodeJS.',
+        ),
+      );
     }
-    
   },
 
   _updateNpmPackages() {
@@ -134,7 +148,7 @@ module.exports = yeoman.extend({
         name: 'description',
         message: 'Write a brief description for your component?',
         store: true,
-        default: 'No description provided'
+        default: 'No description provided',
       },
       {
         type: 'input',
@@ -159,7 +173,7 @@ module.exports = yeoman.extend({
       },
     ];
 
-    return this.prompt(prompts).then((props) => {
+    return this.prompt(prompts).then(props => {
       const newProps = cloneDeep(props);
       newProps.reactComponent = props.reactComponent;
       newProps.component = props.reactComponent;
@@ -176,55 +190,55 @@ module.exports = yeoman.extend({
     const dotFileGlob = '{git,npm}ignore';
     // eslint-disable-next-line prefer-template
     const namedTemplateGlob = './**/*' + FILE_DELIM_OPEN + '*' + FILE_DELIM_CLOSE + '*';
-    
-    glob.sync('./**/*', {
-      cwd: this.sourceRoot(),
-      nodir: true,
-      dot: true,
-      ignore: [
-        './**/' + dotFileGlob,
-        namedTemplateGlob,
-        './**/node_shrinkwrap/**/*',
-      ],
-    }).forEach((template) => {
-      const renderedFile = ejs.render(template, this.props);
-      this.fs.copyTpl(
-        this.templatePath(template),
-        this.destinationPath(renderedFile),
-        this.props
-      );
-    });
 
-    glob.sync('./**/*/', { dot: true, cwd: this.sourceRoot() }).forEach((dir) => {
+    glob
+      .sync('./**/*', {
+        cwd: this.sourceRoot(),
+        nodir: true,
+        dot: true,
+        ignore: ['./**/' + dotFileGlob, namedTemplateGlob, './**/node_shrinkwrap/**/*'],
+      })
+      .forEach(template => {
+        const renderedFile = ejs.render(template, this.props);
+        this.fs.copyTpl(
+          this.templatePath(template),
+          this.destinationPath(renderedFile),
+          this.props,
+        );
+      });
+
+    glob.sync('./**/*/', { dot: true, cwd: this.sourceRoot() }).forEach(dir => {
       mkdirp.sync(this.destinationPath(dir));
     });
 
-    glob.sync(dotFileGlob, {
-      cwd: this.sourceRoot(),
-      dot: true,
-    }).forEach((dotTemplate) => {
-      const renderedFile = ejs.render(dotTemplate, this.props);
-      this.fs.copyTpl(
-        this.templatePath(dotTemplate),
-        this.destinationPath(`.${renderedFile}`),
-        this.props
-      );
-    });
+    glob
+      .sync(dotFileGlob, {
+        cwd: this.sourceRoot(),
+        dot: true,
+      })
+      .forEach(dotTemplate => {
+        const renderedFile = ejs.render(dotTemplate, this.props);
+        this.fs.copyTpl(
+          this.templatePath(dotTemplate),
+          this.destinationPath(`.${renderedFile}`),
+          this.props,
+        );
+      });
 
-    glob.sync(namedTemplateGlob, {
-      cwd: this.sourceRoot(),
-      dot: true,
-    }).forEach((template) => {
-      const ejsFile = template
-        .replace(FILE_DELIM_OPEN, '<%')
-        .replace(FILE_DELIM_CLOSE, '%>');
-      const renderedFile = ejs.render(ejsFile, this.props);
-      this.fs.copyTpl(
-        this.templatePath(template),
-        this.destinationPath(renderedFile),
-        this.props
-      );
-    });
+    glob
+      .sync(namedTemplateGlob, {
+        cwd: this.sourceRoot(),
+        dot: true,
+      })
+      .forEach(template => {
+        const ejsFile = template.replace(FILE_DELIM_OPEN, '<%').replace(FILE_DELIM_CLOSE, '%>');
+        const renderedFile = ejs.render(ejsFile, this.props);
+        this.fs.copyTpl(
+          this.templatePath(template),
+          this.destinationPath(renderedFile),
+          this.props,
+        );
+      });
   },
 
   install() {
@@ -250,14 +264,16 @@ module.exports = yeoman.extend({
     if (this.props.autoLoad) {
       spawn('npm', ['start'], { stdio: 'inherit' });
     } else {
-      console.log(chalk.green.bold(`
+      console.log(
+        chalk.green.bold(`
 
 Get started:
 - npm start
 - visit http://localhost:4000
 
 If you want to more about the available commands read your 'README.md' or use 'npm run-script' in your terminal
-      `));
+      `),
+      );
     }
   },
 });

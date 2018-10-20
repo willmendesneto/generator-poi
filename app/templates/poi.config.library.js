@@ -1,4 +1,4 @@
-const { name, description } = require('./package.json')
+const { name, description } = require('./package.json');
 
 module.exports = {
   html: {
@@ -11,4 +11,4 @@ module.exports = {
   },
   entry: './index-library.js',
   removeDist: true,
-}
+};

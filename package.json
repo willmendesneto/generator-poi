@@ -26,7 +26,6 @@
     "cross-spawn": "^6.0.5",
     "ejs": "^2.6.1",
     "find-parent-dir": "^0.3.0",
-    "fs-extra": "^7.0.0",
     "glob": "^7.1.3",
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
@@ -36,6 +35,10 @@
   "keywords": [
     "yeoman-generator",
     "generate-poi",
+    "poi",
+    "poijs",
+    "yeoman",
+    "generator",
     "generate-poi-boilerplate"
   ],
   "devDependencies": {

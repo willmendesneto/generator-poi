@@ -10,7 +10,7 @@ module.exports = {
     });
   },
 
-  removeFileAndEmptyDir: (filePath) => {
+  removeFileAndEmptyDir: filePath => {
     fs.unlink(filePath);
     let folder = upath.dirname(filePath);
     while (fs.readdirSync(folder).length === 0) {

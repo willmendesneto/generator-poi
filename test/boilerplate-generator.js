@@ -1,9 +1,8 @@
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
-const pkgVersion = require('../package.json').version;
+const { version: pkgVersion } = require('../package.json');
 
 describe('Generator POI boilerplate: bootstrap', () => {
-
   const promtArgs = {
     reactComponent: 'test-boilerplate',
     description: 'My description',
@@ -13,10 +12,7 @@ describe('Generator POI boilerplate: bootstrap', () => {
     updateScripts: false,
   };
 
-  before(() =>
-    helpers.run(require.resolve('../app'))
-            .withPrompts(promtArgs)
-  );
+  before(() => helpers.run(require.resolve('../app')).withPrompts(promtArgs));
 
   it('should create a `package.json` file with given data', () => {
     assert.jsonFileContent('package.json', {
@@ -41,7 +37,10 @@ describe('Generator POI boilerplate: bootstrap', () => {
   it('should create a `README.md` file with given data', () => {
     assert.fileContent('README.md', promtArgs.description);
     assert.fileContent('README.md', promtArgs.reactComponent);
-    assert.fileContent('README.md', `https://github.com/willmendesneto/generator-poi/tree/v${pkgVersion}#code-architecture`);
+    assert.fileContent(
+      'README.md',
+      `https://github.com/willmendesneto/generator-poi/tree/v${pkgVersion}#code-architecture`,
+    );
   });
 
   it('should create configuration files', () => {
@@ -61,28 +60,15 @@ describe('Generator POI boilerplate: bootstrap', () => {
   });
 
   it('should create configuration files from libraries', () => {
-    assert.file([
-      'src/js/export.js',
-      'index-library.js',
-      'index.ejs',
-      'poi.config.library.js',
-    ]);
+    assert.file(['src/js/export.js', 'index-library.js', 'index.ejs', 'poi.config.library.js']);
   });
 
   it('should create configuration files from pages', () => {
-    assert.file([
-      'storybook/addons.js',
-      'storybook/config.js',
-      'index.js',
-      'poi.config.js',
-    ]);
+    assert.file(['storybook/addons.js', 'storybook/config.js', 'index.js', 'poi.config.js']);
   });
 
   it('should create test setup files', () => {
-    assert.file([
-      `tests/unit/${promtArgs.reactComponent}.spec.js`,
-      'tests/setup.js',
-    ]);
+    assert.file([`tests/unit/${promtArgs.reactComponent}.spec.js`, 'tests/setup.js']);
   });
 
   it('should create src content files', () => {

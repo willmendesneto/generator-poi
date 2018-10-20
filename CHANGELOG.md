@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Adding OSS badges
+- Adding contribution docs
+- Adding github templates for issues and pull requests
 
 ### Updated
 

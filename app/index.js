@@ -162,7 +162,7 @@ module.exports = class extends Generator {
         name: 'updateScripts',
         message: 'Auto update npm packages for this generator?',
         store: true,
-        default: true,
+        default: false,
       },
       {
         type: 'confirm',

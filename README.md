@@ -188,6 +188,10 @@ To enforce coverage on the component, edit the `nyc` section in the `package.jso
 and include the minimum `lines`, `statements`, `functions` and `branches` values.
 See [Configuring nyc](https://github.com/istanbuljs/nyc#configuring-nyc) for more info.
 
+## Publishing the package
+
+This project is using `np` as publisher helper. For more information, please check [`np` documentation](https://github.com/sindresorhus/np#readme)
+
 ## Changes
 
 See [CHANGELOG.md](./CHANGELOG.md).

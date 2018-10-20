@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 // yeoman expects underscore dangles for private methods
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const spawn = require('cross-spawn');
 const glob = require('glob');
 const fs = require('fs');
@@ -17,7 +17,7 @@ const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 
 const generatorVersion = generatorPackageJson.version;
 
-module.exports = yeoman.extend({
+module.exports = class extends Generator {
   _customAppName() {
     const privateNpmRepository = /@.*\/(.*)/;
     let appname = this._getPackageProp('name');
@@ -33,7 +33,7 @@ module.exports = yeoman.extend({
     }
 
     return appname;
-  },
+  }
 
   _packageAuthor() {
     let user = '';
@@ -44,11 +44,11 @@ module.exports = yeoman.extend({
       }
     }
     return user;
-  },
+  }
 
   _getPackageProp(property) {
     return this.fs.readJSON(this.destinationPath('package.json'), {})[property];
-  },
+  }
 
   _projectHasParentFolder(folder) {
     let gitDir = null;
@@ -59,7 +59,7 @@ module.exports = yeoman.extend({
     }
 
     return !!gitDir;
-  },
+  }
 
   _runGitInitCommand() {
     if (this._projectHasParentFolder('.git')) {
@@ -78,7 +78,7 @@ module.exports = yeoman.extend({
       ],
       { stdio: 'inherit' },
     );
-  },
+  }
 
   _checkForNPM() {
     if (!commandExists.sync('npm')) {
@@ -90,7 +90,7 @@ module.exports = yeoman.extend({
       );
       return;
     }
-  },
+  }
 
   _useSpecifiedNodeVersion() {
     const nvmIsAvailable = process.env.NVM_BIN || process.env.NVM_CD_FLAGS || process.env.NVM_DIR;
@@ -122,17 +122,17 @@ module.exports = yeoman.extend({
         ),
       );
     }
-  },
+  }
 
   _updateNpmPackages() {
     spawn.sync('npm', ['run', 'check-updates'], { stdio: 'inherit' });
     console.log(chalk.green('NodeJS packages updated'));
-  },
+  }
 
   initializing() {
     this._checkForNPM();
     this.appname = this._customAppName();
-  },
+  }
 
   prompting() {
     const prompts = [
@@ -181,7 +181,7 @@ module.exports = yeoman.extend({
       newProps.generatorVersion = generatorVersion;
       this.props = newProps;
     });
-  },
+  }
 
   writing() {
     // gitignore needs to be copied to .gitignore
@@ -239,7 +239,7 @@ module.exports = yeoman.extend({
           this.props,
         );
       });
-  },
+  }
 
   install() {
     this._useSpecifiedNodeVersion();
@@ -247,7 +247,7 @@ module.exports = yeoman.extend({
       this._updateNpmPackages();
     }
     this.installDependencies({ bower: false, npm: true, yarn: false });
-  },
+  }
 
   end() {
     // Callback to squelch error messages from symlink already created
@@ -275,5 +275,5 @@ If you want to more about the available commands read your 'README.md' or use 'n
       `),
       );
     }
-  },
-});
+  }
+};

@@ -11,7 +11,7 @@
 
 ![Yeoman](./assets/yeoman-masthead.png)
 
-This is a yo generator for building domain react frontend components. Install it, run it and start building components!
+This is a yo generator for building react frontend components. Install it, run it and start building components!
 
 For information on the project it generates, see _[About This
 Project](/app/templates/README.md#about-this-project)_.

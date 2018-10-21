@@ -14,7 +14,9 @@
     "start": "poi --config poi.config.js --storybook",
     "watch": "poi watch --config poi.config.js",
     "test": "NODE_ENV=test nyc --require babel-register --require babel-polyfill --reporter=lcov --reporter=text-summary mocha ./tests/unit/**/*.spec.js --require ./tests/setup.js",
-    "tdd": "npm run test -- --watch"
+    "tdd": "npm run test -- --watch",
+    "bundlesize": "bundlesize",
+    "bundlesize:check": "npm run build:library && npm run bundlesize"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-react-app": "^3.1.0",
     "babel-register": "^6.26.0",
+    "bundlesize": "^0.17.0",
     "chai": "^4.2.0",
     "css-modules-require-hook": "^4.2.2",
     "enzyme": "^3.2.0",
@@ -65,5 +68,11 @@
     "statements": 100,
     "functions": 100,
     "branches": 100
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/client.js",
+      "maxSize": "542B"
+    }
+  ]
 }

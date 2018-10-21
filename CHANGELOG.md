@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [3.1.1][] - 2018-10-22
+
 ### Added
 
 - Adding NPM script to check library bundlesize
@@ -196,3 +198,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.0.1]: https://github.com/willmendesneto/generator-poi-boilerplate/tree/v1.0.1
 [unreleased]: https://github.com/willmendesneto/generator-poi/compare/v3.1.0...HEAD
 [3.1.0]: https://github.com/willmendesneto/generator-poi/tree/v3.1.0
+
+
+[Unreleased]: https://github.com/willmendesneto/generator-poi/compare/v3.1.1...HEAD
+[3.1.1]: https://github.com/willmendesneto/generator-poi/tree/v3.1.1

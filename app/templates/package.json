@@ -48,7 +48,7 @@
     "node-sass": "^4.9.4",
     "npm-check-updates": "^2.14.0",
     "nyc": "^13.1.0",
-    "poi": "^12.0.1",
+    "poi": "^12.3.0",
     "poi-preset-storybook": "^0.1.2",
     "sass-loader": "^7.1.0",
     "storybook-addon-jsx": "^6.0.0",

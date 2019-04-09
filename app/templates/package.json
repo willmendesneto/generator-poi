@@ -46,7 +46,7 @@
     "jsdom": "^13.0.0",
     "mocha": "^5.2.0",
     "node-sass": "^4.9.4",
-    "npm-check-updates": "^2.14.0",
+    "npm-check-updates": "^3.1.7",
     "nyc": "^13.1.0",
     "poi": "^12.0.1",
     "poi-preset-storybook": "^0.1.2",

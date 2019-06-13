@@ -30,7 +30,7 @@
   "homepage": "https://github.com/willmendesneto/<%= reactComponent %>#readme",
   "devDependencies": {
     "@storybook/addon-a11y": "^5.1.5",
-    "@storybook/addon-options": "^4.0.12",
+    "@storybook/addon-options": "^5.1.5",
     "babel-plugin-react-require": "^3.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-react-app": "^7.0.0",

@@ -35,7 +35,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-react-app": "^7.0.0",
     "babel-register": "^6.26.0",
-    "bundlesize": "^0.17.0",
+    "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "css-modules-require-hook": "^4.2.2",
     "enzyme": "^3.2.0",

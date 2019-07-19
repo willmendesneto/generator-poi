@@ -51,7 +51,7 @@
     "poi": "^12.0.1",
     "poi-preset-storybook": "^0.1.2",
     "sass-loader": "^7.1.0",
-    "storybook-addon-jsx": "^6.0.0",
+    "storybook-addon-jsx": "^7.1.5",
     "storybook-react": "^3.2.16"
   },
   "dependencies": {

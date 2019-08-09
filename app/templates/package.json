@@ -33,7 +33,7 @@
     "@storybook/addon-options": "^4.0.12",
     "babel-plugin-react-require": "^3.0.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-react-app": "^7.0.0",
+    "babel-preset-react-app": "^9.0.1",
     "babel-register": "^6.26.0",
     "bundlesize": "^0.17.0",
     "chai": "^4.2.0",

@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/willmendesneto/generator-poi#readme",
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^3.0.0",
     "command-exists": "^1.2.8",
     "cross-spawn": "^6.0.5",
     "ejs": "^2.6.1",

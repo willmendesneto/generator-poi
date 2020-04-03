@@ -47,7 +47,7 @@
     "mocha": "^6.0.0",
     "node-sass": "^4.9.4",
     "npm-check-updates": "^2.14.0",
-    "nyc": "^14.0.0",
+    "nyc": "^15.0.1",
     "poi": "^12.0.1",
     "poi-preset-storybook": "^0.1.2",
     "sass-loader": "^7.1.0",

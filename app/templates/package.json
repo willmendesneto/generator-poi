@@ -45,7 +45,7 @@
     "http-server": "^0.11.1",
     "jsdom": "^13.0.0",
     "mocha": "^6.0.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.14.0",
     "npm-check-updates": "^2.14.0",
     "nyc": "^14.0.0",
     "poi": "^12.0.1",

@@ -44,7 +44,7 @@
     "gh-pages": "^2.0.1",
     "http-server": "^0.11.1",
     "jsdom": "^13.0.0",
-    "mocha": "^6.0.0",
+    "mocha": "^7.2.0",
     "node-sass": "^4.9.4",
     "npm-check-updates": "^2.14.0",
     "nyc": "^14.0.0",
